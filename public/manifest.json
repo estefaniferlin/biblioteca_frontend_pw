@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Biblioteca PW",
+  "name": "Sistema gerenciador de biblioteca",
   "icons": [
     {
       "src": "favicon.ico",
