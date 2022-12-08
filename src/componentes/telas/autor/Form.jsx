@@ -34,7 +34,7 @@ function Form() {
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form id="formulario" onSubmit={acaoCadastrar}
-                    className="needs-validation" noValidate>
+                        className="needs-validation" noValidate>
                         <div className="modal-body">
                             <Alerta alerta={alerta} />
                             <div className="form-group">

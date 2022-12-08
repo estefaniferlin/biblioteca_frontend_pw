@@ -8,8 +8,11 @@ function Livro() {
     const [listaObjetos, setListaObjetos] = useState([]);
     const [editar, setEditar] = useState(false);
     const [objeto, setObjeto] = useState({
-        codigo: "", titulo: "", autor: "", genero: "" 
+        codigo: "", titulo: "",
+        autor: "", genero: "" 
     });
+    const [listaAutores, setListaAutores] = useState([]);
+    const [listaGeneros, setListaGeneros] = useState([]);
 
     const recuperar = async codigo => {
         await fetch(`${process.env.REACT_APP_ENDERECO_API}/livros/${codigo}`)
@@ -58,6 +61,20 @@ function Livro() {
             .catch(err => console.log('Erro: ' + err))
     }
 
+    const recuperaAutores = async () => {
+        await fetch(`${process.env.REACT_APP_ENDERECO_API}/autores`)
+            .then(response => response.json())
+            .then(data => setListaAutores(data))
+            .catch(err => console.log('Erro: ' + err))
+    }
+
+    const recuperaGeneros = async () => {
+        await fetch(`${process.env.REACT_APP_ENDERECO_API}/generos`)
+            .then(response => response.json())
+            .then(data => setListaGeneros(data))
+            .catch(err => console.log('Erro: ' + err))
+    }
+
     const remover = async objeto => {
         if (window.confirm('Deseja remover este objeto?')) {
             try {
@@ -74,6 +91,8 @@ function Livro() {
 
     useEffect(() => {
         recuperaLivros();
+        recuperaAutores();
+        recuperaGeneros();
     }, []);
 
     return (
@@ -81,12 +100,13 @@ function Livro() {
             {
                 alerta, setAlerta,
                 listaObjetos, setListaObjetos,
-                recuperaLivros,
+                recuperaLivros, recuperaAutores, recuperaGeneros,
                 remover,
                 objeto, setObjeto,
                 editar, setEditar,
                 recuperar,
-                acaoCadastrar, handleChange
+                acaoCadastrar, handleChange,
+                listaAutores, listaGeneros
             }
         }>
             <Tabela />

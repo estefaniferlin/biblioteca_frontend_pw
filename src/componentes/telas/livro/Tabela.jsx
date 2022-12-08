@@ -50,8 +50,8 @@ function Tabela() {
                                 </td>
                                 <td>{objeto.codigo}</td>
                                 <td>{objeto.titulo}</td>
-                                <td>{objeto.autor}</td>
-                                <td>{objeto.genero}</td>
+                                <td>{objeto.nomeautor}</td>
+                                <td>{objeto.nomegenero}</td>
                             </tr>
                         ))}
                     </tbody>

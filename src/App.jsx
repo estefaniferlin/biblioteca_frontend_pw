@@ -12,7 +12,7 @@ import Livro from './componentes/telas/livro/Livro';
 function App() {
   return (
     <Router>
-      <Menu/>
+      <Menu />
         <Routes>
           <Route exact path="/" element={<Home/>}/>
           <Route exact="true" path="/autores" element={<Autor/>}/>
