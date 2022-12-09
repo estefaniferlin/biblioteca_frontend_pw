@@ -9,7 +9,7 @@ function Tabela() {
     return (
         <div style={{ padding: '20px' }}>
             <h1>Livros</h1>
-            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEdicao"
+            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEdicao" title="Criar livro"
                 onClick={() => {
                     setObjeto({ codigo: 0, titulo: "", autor: "", genero: ""})
                     setEditar(false);
@@ -34,7 +34,7 @@ function Tabela() {
                         {listaObjetos.map(objeto => (
                             <tr key={objeto.codigo}>
                                 <td align="center">
-                                    <button className="btn btn-info"
+                                    <button className="btn btn-info" title="Editar"
                                         data-bs-toggle="modal" data-bs-target="#modalEdicao"
                                         onClick={() => {
                                             recuperar(objeto.codigo);
@@ -50,8 +50,8 @@ function Tabela() {
                                 </td>
                                 <td>{objeto.codigo}</td>
                                 <td>{objeto.titulo}</td>
-                                <td>{objeto.nomeautor}</td>
-                                <td>{objeto.nomegenero}</td>
+                                <td>{objeto.autor}</td>
+                                <td>{objeto.genero}</td>
                             </tr>
                         ))}
                     </tbody>
